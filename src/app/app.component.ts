@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'counters';
-  initialValue = 19;
+
+  constructor(private counterService: CounterService) {}
 
   reset(){
-    this.initialValue = 19;
+    this.counterService.reset();
   }
 }
