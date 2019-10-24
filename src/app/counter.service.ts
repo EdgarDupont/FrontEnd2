@@ -4,13 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CounterService {
+  public initialValue = [19,19,19];
 
-  initialValue = [19, 19, 19];
   constructor() { }
+
   reset(){
-    this.value = [0, 0, 0];
+    this.initialValue = [0,0,0];
   }
-  increment(position:number): number{
+
+  increment(position: number): number {
     this.initialValue[position]++;
     return this.initialValue[position];
   }
