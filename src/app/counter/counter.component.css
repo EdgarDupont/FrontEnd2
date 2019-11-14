@@ -1,1 +1,11 @@
-h1{color: brown}
+h2 {
+    color : rgb(177, 133, 148);
+}
+button {
+    color : rgb(145, 95, 31);
+}
+
+p {
+    font-size: 200%;
+    color : rgb(124, 85, 98);
+}

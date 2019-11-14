@@ -1,19 +1,29 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Counter } from './counter';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CounterService {
-  public initialValue = [19,19,19];
 
-  constructor() { }
+  public initialValue = [45, 6, 28];
+  
+  constructor(private httpClient : HttpClient) { }
 
-  reset(){
-    this.initialValue = [0,0,0];
+  reset() {
+    this.initialValue = [0 , 0, 0];
   }
 
-  increment(position: number): number {
-    this.initialValue[position]++;
-    return this.initialValue[position];
+
+  increment(): Observable<Counter>{
+    this.httpClient.patch("https://lp4asgadot.herokuapp.com/counters/51.json",{"value" : 1}).subscribe();
+    return this.httpClient.get<Counter>("https://lp4asgadot.herokuapp.com/counters/51.json");
   }
+
+  getCounterValue(id : number): Observable<Counter> {
+    return this.httpClient.get<Counter>("https://lp4asgadot.herokuapp.com/counters/51.json")
+  }
+  
 }

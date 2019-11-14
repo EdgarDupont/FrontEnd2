@@ -11,12 +11,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule}    from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +34,12 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
