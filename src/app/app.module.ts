@@ -13,10 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule}    from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileComponent } from './profile/profile.component';
+import { NgxActionCableModule, NgxActionCableConfiguration } from 'ngx-actioncable';
 
+export function getNgxActionCableConfig(): NgxActionCableConfiguration {
+  let config = new NgxActionCableConfiguration('counter-id', 'wss://lp4asgadot.herokuapp.com/cable');
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -37,7 +42,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatListModule,
     MatCardModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxActionCableModule.forConfig(getNgxActionCableConfig)
   ],
   providers: [],
   bootstrap: [AppComponent],
